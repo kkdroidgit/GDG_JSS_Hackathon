@@ -17,8 +17,10 @@ public class PrefManager {
 
     // Shared preferences file name
     private static final String PREF_NAME = "welcome";
-
     private static final String IS_FIRST_TIME_LAUNCH = "IsFirstTimeLaunch";
+    private static final String IS_BOOK = "Activity_Name";
+    private static final String IS_ARTIST = "Activity_Name";
+
 
     public PrefManager(Context context) {
         this.context = context;
@@ -33,6 +35,14 @@ public class PrefManager {
 
     public boolean isFirstTimeLaunch() {
         return pref.getBoolean(IS_FIRST_TIME_LAUNCH, true);
+    }
+
+    public void setBook(boolean isBook){
+        editor.putBoolean(IS_BOOK,isBook);
+        editor.commit();
+    }
+    public boolean isBook(){
+        return pref.getBoolean(IS_BOOK,true);
     }
 
 }

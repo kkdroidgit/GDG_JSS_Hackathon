@@ -1,13 +1,18 @@
 package com.paperwrk.gdgjsshackathon;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Button;
+
+import com.paperwrk.gdgjsshackathon.activities.HomeBookActivity;
+import com.paperwrk.gdgjsshackathon.utils.PrefManager;
 
 public class IdentityActivity extends AppCompatActivity {
+
+    Button button_book;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,16 +20,23 @@ public class IdentityActivity extends AppCompatActivity {
         setContentView(R.layout.activity_identity);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+
+        button_book = findViewById(R.id.button_book);
+
+        final PrefManager prefManager = new PrefManager(getApplicationContext());
+
+        button_book.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent intent = new Intent(IdentityActivity.this, HomeBookActivity.class);
+                startActivity(intent);
+                prefManager.setBook(true);
             }
         });
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
     }
 
 }

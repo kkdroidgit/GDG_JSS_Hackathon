@@ -14,10 +14,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".activities.MainActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:name=".activities.HomeBookActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".activities.SplashActivity"
+            android:name=".SplashScreenActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
@@ -28,14 +28,22 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".IdentityActivity"
-            android:label="@string/title_activity_identity"
-            android:parentActivityName=".activities.SplashActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:name=".PlaylistActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="Playlist"
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.paperwrk.gdgjsshackathon.activities.SplashActivity" />
+                android:value=".activities.HomeBookActivity" />
         </activity>
+        <activity
+            android:name=".ActivityPlayer"
+            android:configChanges="orientation|keyboard|keyboardHidden|screenSize|screenLayout|uiMode"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".ArtistActivity" />
+        <activity android:name=".BookArtistActivity" />
+        <activity android:name=".chat.ChatActivity"></activity>
     </application>
 
 </manifest>
